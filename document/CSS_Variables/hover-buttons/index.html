@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+
+    :root {
+      --button-height: 3rem;
+    }
+
+    .flex-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      margin: 0 -5px;
+    }
+
+
+    .button {
+      width: 7rem;
+      height: var(--button-height);
+      border-radius: 5px;
+      text-align: center;
+      vertical-align: middle;
+      line-height: var(--button-height);
+      margin: 0 5px;
+      border: 2px solid var(--border-color, black);
+    }
+
+    .red {
+      --border-color: red;
+    }
+
+    .button.red:hover {
+      background-color: red;
+      color: white;
+
+    }
+
+    .button.black:hover {
+      background-color: black;
+      color: white;
+
+    }
+
+
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <div class="red button">
+        hello
+
+      </div>
+      <div class="black button">
+        hello
+
+      </div>
+
+    </div>
+
+
+
+
+
+  </body>
+</html>

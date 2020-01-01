@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Type Ahead</title>
+
+    <style media="screen">
+      .suggestion-item {
+        text-decoration: underline;
+        text-transform: capitalize;
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <form class="search-form">
+      <input type="text" name="search" placeholder="City or a State" id="search-box">
+      <ul class="suggestions">
+        <li>Filter for a city</li>
+        <li>or a state</li>
+      </ul>
+    </form>
+    <script type="text/javascript">
+      const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+      /*
+        1. fetch data from the provided endpoint
+        2. listen for input (keyup - stopped typing) and display a list of suggestions available in the list
+        based on the user input
+      */
+
+
+      const data = [];
+      fetch(endpoint)
+        .then(response => response.json())
+        .then(responseJson => data.push(...responseJson))
+
+
+      const inputEl = document.getElementById("search-box");
+      const ulEl = document.getElementsByClassName("suggestions")[0];
+      const defaultSuggestion = ulEl.innerHTML;
+
+      function findMatches(userInputRegex) {
+        const matches = data.filter(item => {
+          return item.city.match(userInputRegex) || item.state.match(userInputRegex)
+        })
+        return matches
+      }
+
+      function displayMatches(event) {
+        const userInput = event.target.value;
+        const regex = new RegExp(userInput, 'gi');
+        const matches = findMatches(regex);
+        // macthes is an array
+        // needto highlight the regex in the city or state name
+        const html = matches.map(item => {
+          const cityName = item.city.replace(regex, `<span class="suggestion-item">${userInput}</span>`);
+          const stateName = item.state.replace(regex, `<span class="suggestion-item">${userInput}</span>`);
+          return `
+            <li>
+              <span class="name">${cityName}, ${stateName}</span>
+            </li>
+          `
+        }).join("");
+
+        ulEl.innerHTML = html;
+
+        if (userInput === ''){
+          ulEl.innerHTML = defaultSuggestion;
+        }
+
+      }
+
+      inputEl.addEventListener("change", displayMatches)
+      inputEl.addEventListener("keyup", displayMatches)
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Event Handlers</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <!-- there are several ways to assign a handler -->
+
+    <!-- via HTML event attributes -->
+    <div class="button" onclick="this.innerHTML='Thank you!'">
+      <p>Click me!</p>
+    </div>
+
+    <div class="button" onmouseover="myFuncOver(this)" onmouseout="myFuncDefault(this)">
+      <p>Mouse over me!</p>
+      <script type="text/javascript">
+        function myFuncOver(obj) {
+          obj.innerHTML = "Thank you!"
+        }
+        function myFuncDefault(obj) {
+          obj.innerHTML = "Mouse over me!"
+        }
+
+      </script>
+    </div>
+
+    <!-- via the HTML DOM -->
+    <div class="button" id="special">
+      <p>click me</p>
+
+    </div>
+      <script type="text/javascript">
+      var mySpecialButton = document.getElementById("special");
+      mySpecialButton.innerHTML ="new stuff";
+
+      </script>
+
+
+
+
+  </body>
+</html>

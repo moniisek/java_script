@@ -1,0 +1,10 @@
+.result-box {
+  border: 1px solid slateblue;
+  margin: 5px;
+  width: 50%;
+}
+
+#result-display {
+  color: red;
+}
+

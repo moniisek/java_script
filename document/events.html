@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Adding an event listener</title>
+        <style>
+          .drop {
+            background-color: blue;
+            width: 4px;
+            height: 4px;
+            border-radius: 2px;
+            position: absolute;
+            top: 20px;
+            left: 80px;
+          }
+
+          .box {
+            background-color: rgb(197, 240, 208);
+            margin: 10px;
+            width: 500px;
+            height: 500px;
+          }
+        </style>
+    </head>
+    <body>
+
+    <h1>Boring webpage</h1>
+
+    <button id="clicker">Boring button</button>
+    <div class="box" id="myBox">
+
+
+    </div>
+
+
+
+    <script>
+    // 1. Find and store the element we want to listen to events on.
+    var clickerButton = document.getElementById("clicker");
+
+    // 2. Define the function that will respond to the event.
+    // callback function passed to addEventListener
+    var onButtonClick = function() {
+      clickerButton.textContent = "Wow, you clicked me!";
+    };
+    // 3. Add the event listener for the element and function
+    clickerButton.addEventListener("click", onButtonClick);
+
+    // make it rain on the box div
+    var boxDiv = document.getElementById("myBox");
+    var onMouseMove = function(e) {
+      // e = event information object
+
+      var drop = document.createElement("div");
+      drop.className = "drop";
+      drop.style.top = e.clientY + "px";
+      drop.style.left = e.clientX + "px";
+      boxDiv.appendChild(drop);
+    };
+    boxDiv.addEventListener("mousemove", onMouseMove);
+
+
+    </script>
+    </body>
+</html>

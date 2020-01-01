@@ -1,0 +1,89 @@
+html, body {
+  width: 100%;
+  height: 100%;
+}
+:root {
+  --main-color: #1E293A;
+  --clock-inside-color: #FFF;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.clock {
+  /* border: 1.5rem solid var(--clock-color);
+  border-radius: 50%; */
+  width: 20rem;
+  height: 20rem;
+}
+
+.clock-face {
+  position: relative;
+  width: 20rem;
+  height: 20rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.numbers {
+  position: relative;
+}
+
+.number {
+  position: absolute;
+  width: 0.5rem;
+  height: 10rem;
+  transform-origin: 0 100%;
+  background: linear-gradient(
+    to top,
+    var(--clock-inside-color) 0%,
+    var(--clock-inside-color) 80%,
+    var(--main-color) 80%,
+    var(--main-color) 100%);
+}
+
+
+.hands {
+  position: relative;
+}
+
+.hand {
+  position: absolute;
+  transform-origin: 0 100%;
+}
+
+.hours {
+  width: 0.4rem;
+  height: 4rem;
+  background-color: black;
+  top: 6rem;
+}
+
+.minutes {
+  width: 0.2rem;
+  height: 6rem;
+  background-color: black;
+  top: 4rem;
+}
+
+.seconds {
+  width: 0.15rem;
+  height: 7rem;
+  background-color: red;
+  top: 3rem;
+}
+
+.middle-button {
+  width: 0.8rem;
+  height: 0.8rem;
+  background-color: var(--main-color);
+  position: absolute;
+  top: 9.7rem;
+  border-radius: 50%;
+  left: -0.4rem;
+}

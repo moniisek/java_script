@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="flex-container">
+      <div class="clock">
+        <div class="clock-face">
+          <div class="numbers">
+            <div class="number"></div>
+          </div>
+          <div class="hands">
+            <div class="hand hours"></div>
+            <div class="hand minutes"></div>
+            <div class="hand seconds"></div>
+            <div class="middle-button">
+          </div>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    <script type="text/javascript">
+    // add ticks
+      const numbers = document.querySelector(".numbers");
+
+
+      const addTicks = function(label, degrees){
+        var newTick = document.createElement("div");
+        newTick.classList.add("number");
+        newTick.id = label;
+        newTick.style.transform = `rotate(${degrees}deg)`;
+        numbers.appendChild(newTick);
+      };
+
+      let angleInit = 30;
+      for (let i = 1; i < 13; i++) {
+        let label = new String(i);
+        addTicks(label, i * angleInit);
+      }
+
+      const secondsHand = document.querySelector(".hand.seconds");
+      const minutesHand = document.querySelector(".hand.minutes");
+      const hoursHand = document.querySelector(".hand.hours");
+
+      const moveHands = function(){
+        var now = new Date();
+        var seconds = now.getSeconds();
+        var minutes = now.getMinutes();
+        var hours = now.getHours();
+
+        var secondsDegrees = seconds * 6;
+        secondsHand.style.transform = `rotate(${secondsDegrees}deg)`;
+
+        var minutesDegrees = minutes * 6;
+        minutesHand.style.transform = `rotate(${minutesDegrees}deg)`;
+
+        var hoursDegrees = (hours * 30) + ((minutes / 60) * 30);
+        hoursHand.style.transform = `rotate(${hoursDegrees}deg)`;
+
+      };
+
+      moveHands();
+      setInterval(moveHands, 1000);
+
+
+
+
+
+
+    </script>
+
+  </body>
+</html>

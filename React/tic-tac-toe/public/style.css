@@ -1,0 +1,47 @@
+.game-container {
+  width: 40vw;
+  display: flex;
+}
+
+.status-area {
+  font-family: 'Muli', sans-serif;
+  margin-right: 2vw;
+}
+
+
+
+.square {
+  background-color: #F1EFEB;
+  border: 0.01em solid #456995;
+  color: #101319;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 2vh;
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.board {
+  width: 15vw;
+  height: 15vh;
+  border: solid 1px red;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: "btn1 btn2 btn3" "btn4 btn5 btn6" "btn7 btn8 btn9";
+}
+
+.go-to-move {
+  border: none;
+  background: transparent;
+  padding: 3px 4px;
+  margin: 2px;
+}
+
+.current-move-style {
+  font-weight: bold;
+}
+
+.winning-position {
+  color: red;
+}

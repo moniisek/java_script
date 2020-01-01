@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+
+     .container {
+       width: 500px;
+       height: 100px;
+       margin: 20px;
+       background-color: #F7B4A5;
+       text-align: center;
+       vertical-align: middle;
+       line-height: 100px;
+     }
+
+
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <p>Press a key to change color</p>
+      <p>C ... green</p>
+      <p>B ... blue</p>
+      <p>X ... red</p>
+
+    </div>
+
+    <script type="text/javascript">
+    var onKeyPress = function (e) {
+      var keyPressed = e.keyCode;
+      console.log(keyPressed);
+      if (keyPressed === 67) {
+        document.body.style.backgroundColor = "green";
+      }
+      else if (keyPressed === 66) {
+        document.body.style.backgroundColor = "blue";
+      } else if (keyPressed === 88) {
+        document.body.style.backgroundColor = "red";
+      } else {
+        document.body.style.backgroundColor = "";
+      }
+
+
+    };
+    document.addEventListener("keydown", onKeyPress);
+
+    </script>
+
+
+  </body>
+</html>

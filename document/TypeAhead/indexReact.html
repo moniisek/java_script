@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
+    <script type="text/babel">
+    const endpoint = "https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json";
+
+
+    function SuggestionsList(props) {
+      if (props.userInput === "") {
+        return(
+          <div>
+            <ul>
+            <li>Filter for a city</li>
+            <li>or a state</li>
+            </ul>
+          </div>
+        )
+      } else {
+        const suggestionsArray = [];
+        const suggestionStyle = {
+          textDecoration: "underline"
+        }
+
+        for (let i = 0; i < props.suggestions.length; i++) {
+          let cityName = props.suggestions[i].city.replace(props.userInput,<span style=${suggestionStyle}>${props.userInput}</span>);
+          let stateName = props.suggestions[i].state;
+          console.log(cityName)
+
+          suggestionsArray.push(
+            (
+              <ul>
+                <li>{cityName}, {props.suggestions[i].state}</li>
+              </ul>
+            )
+          )
+        }
+        return (
+          <div>{suggestionsArray}</div>
+        )
+      }
+
+    }
+
+      class App extends React.Component {
+        constructor() {
+          super()
+          this.state = {
+            userInput: "",
+            data: [],
+            suggestions: []
+          }
+
+          this.handler = this.handler.bind(this)
+        }
+
+        componentDidMount() {
+          fetch(endpoint)
+            .then(blob => blob.json())
+            .then(response => {
+              this.setState({data: response})
+            })
+        }
+
+        handler(event) {
+          this.setState({userInput: event.target.value})
+          if (event.target.value != "") {
+            const regex = new RegExp(this.state.userInput, 'gi');
+            const matches = this.state.data.filter(item=> {
+              return item.city.match(regex) || item.state.match(regex)
+            })
+            this.setState({suggestions: matches})
+          }
+
+
+        }
+
+        render() {
+          return(
+            <div>
+              <input
+                type="text"
+                name="userSearch"
+                placeholder="City or State"
+                value={this.state.userInput}
+                onChange={this.handler}
+              />
+            <SuggestionsList suggestions={this.state.suggestions} userInput={this.state.userInput}/>
+            </div>
+          )
+        }
+      }
+
+
+
+      ReactDOM.render(<App />, document.getElementById("root"))
+    </script>
+
+  </body>
+</html>

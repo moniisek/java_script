@@ -1,0 +1,58 @@
+/*
+font-family: 'Open Sans', sans-serif;
+*/
+
+h1 {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+}
+
+
+.photo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+
+.card {
+  width: 30%;
+  background-color: slateblue;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card img {
+  width: 100%;
+}
+
+
+.card-photo-info {
+  text-align: center;
+  padding: 10px 20px;
+
+}
+
+.single-photo {
+  display: flex;
+  width: 70%;
+  border: 1px solid red;
+  justify-content: space-between;
+}
+
+.comments{
+  background: slateblue;
+  width: 40%;
+}
+
+.single-photo .card {
+  width: 65%;
+}
+
+span {
+  padding: 2px;
+}

@@ -1,0 +1,44 @@
+body {
+  text-align: center;
+  font-size: 1.2rem;
+  font-family: 'Bahnschrift', sans-serif;
+  background-color: #F5F5F5;
+
+}
+
+:root {
+  /* define CSS variables for HTML inputs corresponding to their name
+  and give them some default values */
+  --blur: 10px;
+  --frame-size: 10px;
+  --frame-color: #ffc600;
+}
+
+.controls {
+  display: flex;
+  flex-direction: row;
+  / * align-items is for y-axis */
+  align-items: center;
+  justify-content: center;
+  margin: 0 -5px;
+}
+
+.flex-item {
+    margin: 0 5px;
+}
+
+.image {
+  width: 30rem;
+  height: 20rem;
+  margin-top: 2rem;
+
+  /* add the properties we are going to be changing to the image
+  reference css variable with var */
+  background: var(--frame-color);
+  padding: var(--frame-size);
+  filter: blur(var(--blur));
+}
+
+.heading {
+  color: var(--frame-color);
+}

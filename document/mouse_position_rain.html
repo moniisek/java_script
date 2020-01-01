@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <style>
+      .box {
+        background-color: rgb(197, 240, 208);
+        margin: 10px;
+        width: 500px;
+        height: 500px;
+      }
+
+      .drop {
+        background-color: blue;
+        width: 4px;
+        height: 4px;
+        border-radius: 2px;
+        position: absolute;
+        top: 20px;
+        left: 80px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="box" id="boxEl">
+      <div class="drop">
+
+      </div>
+
+    </div>
+  <script>
+    // select the box element
+    var boxEl = document.getElementById("boxEl");
+
+    // define event handler
+    var onMouseMove = function(e) {
+      var drop = document.createElement("div");
+      drop.className = "drop";
+      drop.style.top = e.clientY + "px";
+      drop.style.left = e.clientX + "px";
+      boxEl.appendChild(drop);
+
+    };
+
+    // add event Listener
+    boxEl.addEventListener("mousemove", onMouseMove);
+
+
+  </script>
+
+  </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+       /* CCS selector example   */
+      p .animal {
+        color: red;
+      }
+
+
+       /* brackets [] attribute selector */
+      /* * universal selector
+      select all anchor tags whose href attribute contains Dog */
+      a[href*=Dog] {
+        color: purple;
+      }
+
+      .catColors {
+        color: orange;
+        background-color: forestgreen;
+        text-align: center;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <h1 id="heading">All about dogs</h1>
+
+       <p>The domestic <span class="animal">dog</span> is known as man's best friend. The <span class="animal">dog</span> was the first domesticated animal and has been widely kept as a working, hunting, and pet companion. According to recent coarse estimates, there are currently between 700 million and one billion <span class="animal">dog</span>s, making them the most abundant predators in the world. <a href="http://en.wikipedia.org/wiki/Dog">Read more on Wikipedia</a>.</p>
+
+       <img src="https://www.kasandbox.org/programming-images/animals/dog_sleeping-puppy.png" height="150">
+
+       <img src="https://www.kasandbox.org/programming-images/animals/dogs_collies.png" height="150">
+
+       
+
+       <script type="text/javascript">
+         // get h1 elements
+         var h1Els = document.getElementsByTagName("h1");
+         // change it to all about cats
+         h1Els[0].innerHTML = "All about cats";
+
+
+         var imgEls = document.getElementsByTagName("img");
+         imgEls[0].src = "https://www.kasandbox.org/programming-images/animals/cat.png";
+
+         var linkEls = document.querySelectorAll("a[href*=\"Dog\"]");
+         linkEls[0].href = "http://en.wikipedia.org/wiki/Cat";
+
+         var headingEl = document.getElementById("heading");
+         // headingEl.style.color = "orange";
+         // headingEl.style.backgroundColor = "forestgreen";
+         // headingEl.style.textAlign = "center";
+          headingEl.className += "catColors";
+
+          var animalClassEls = document.getElementsByClassName("animal");
+          for (let i = 0; i < animalClassEls.length; i++) {
+            animalClassEls[i].innerHTML = "cat";
+
+          }
+          // create an <img> tag
+          var newImgEl = document.createElement("img");
+          newImgEl.src = "https://www.kasandbox.org/programming-images/animals/cat.png";
+          newImgEl.alt = "photo of a cute cat";
+          newImgEl.style.width = "100px";
+          // and tell the browser where it should be
+          document.body.appendChild(newImgEl);
+
+          // create a text node ("leaf" of the DOM tree)
+          var newTextEl = document.createTextNode("cat");
+          var newSpanEl = document.createElement("span");
+          newSpanEl.appendChild(newTextEl);
+
+
+
+
+
+
+
+
+       </script>
+
+  </body>
+</html>

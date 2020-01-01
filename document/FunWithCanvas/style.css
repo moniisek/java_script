@@ -1,0 +1,17 @@
+html, body {
+  margin: 0
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#canvas {
+  border: solid 1px slateblue;
+}
+#clear-canvas {
+  background: transparent;
+  box-shadow: none;
+  margin-top: 2px;
+}
