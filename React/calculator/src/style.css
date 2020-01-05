@@ -24,7 +24,7 @@ html, body {
 }
 
 .screen {
-  height: 25%;
+  height: 30%;
   width: 100%;
   padding: 0 0.3rem;
   box-sizing: border-box;
@@ -33,19 +33,21 @@ html, body {
 }
 
 .result-screen {
-  height: 80%;
+  height: 75%;
   font-size: 4rem;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+  
 }
 
 .computation-screen {
-  height: 20%;
+  height: 24%;
   font-size: 1.5rem;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+
 }
 
 
