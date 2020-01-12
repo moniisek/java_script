@@ -15,7 +15,6 @@
  ```
  {"presets": ["@babel/preset-env", "@babel/preset-react"]}
  ```
-
  This set up has development server only. Doesn't create build chunks in dist.
 
 5. css
