@@ -4,6 +4,14 @@ const HtmlWebpackPlugin = require("html-webpack-plugin")
 module.exports = {
   mode: "development",
   entry: "./src/index.js",
+  output: {
+    path: Path.resolve(__dirname, "dist"),
+    filename: "index.bundle.js",
+    publicPath: "/"
+  },
+  devServer: {
+    historyApiFallback: true
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/template.html'

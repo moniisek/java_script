@@ -1,9 +1,13 @@
 import React from 'react'
+import {Button} from '../components/AuthForm'
 
 
 const Admin = (props) => {
   return (
-    <div>Admin page</div>
+    <div>
+      <div>Admin page</div>
+      <Button onClick={logOut}>Log out</Button>
+    </div>
   )
 };
 
