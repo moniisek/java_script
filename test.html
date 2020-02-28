@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    const arr2 = [];
+    const arr1 = [
+        {
+          "id":"5ba27e2b44abeb0001fe46ed",
+          "email":"limestone@msa.com",
+          "firstName":"","surname":"",
+          "displayedName":"limestone@msa.com"
+        },
+        {"id":"5c2cd94e4cd52d00017b3881",
+        "email":"martin.motycka@diribet.cz",
+        "firstName":"Martin",
+        "surname":"Motyčka",
+        "displayedName":"Martin Motyčka"
+      }
+    ];
+
+    let result;
+
+    // goal: if an object already is in array1, dont put it in result
+
+    function mergeArraysByObjKey(arr1, arr2, objKey) {
+      const arr1Ids = arr1.map(item => item[objKey]);
+      const arr = [...arr1];
+      arr2.forEach(item => {
+        if (arr1Ids.indexOf(item[objKey]) === -1) {
+          arr.push(item);
+        }
+      })
+      return arr
+    }
+
+    result = mergeArraysByObjKey(arr1, arr2, "id")
+
+    console.log(result, arr2);
+
+
+    </script>
+
+  </body>
+</html>
