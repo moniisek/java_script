@@ -21,7 +21,11 @@
     "react-dom": "^16.13.0",
     "webpack": "^4.42.0",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3"
+    "webpack-dev-server": "^3.10.3",
+	"minimist": ">=1.2.3",
+	"websocket-extensions": ">=0.1.4",
+	"acorn": ">=6.4.1",
+	"kind-of": ">=6.0.3"
   },
   "dependencies": {
     "plotly.js": "^1.52.3",
