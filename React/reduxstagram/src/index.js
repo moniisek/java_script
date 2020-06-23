@@ -11,11 +11,11 @@ const store = configureStore(defaultState);
 
 const router = (
   <Provider store={store}>
-    // <ConnectedRouter history={history}>
+    <ConnectedRouter history={history}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    // </ConnectedRouter>
+    </ConnectedRouter>
   </Provider>
 )
 
